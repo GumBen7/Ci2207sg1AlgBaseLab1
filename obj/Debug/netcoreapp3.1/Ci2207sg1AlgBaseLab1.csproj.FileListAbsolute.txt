@@ -1,0 +1,14 @@
+C:\Users\SivtsevEE\source\repos\Ci2207sg1AlgBaseLab1\obj\Debug\netcoreapp3.1\Ci2207sg1AlgBaseLab1.csproj.AssemblyReference.cache
+C:\Users\SivtsevEE\source\repos\Ci2207sg1AlgBaseLab1\obj\Debug\netcoreapp3.1\Ci2207sg1AlgBaseLab1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SivtsevEE\source\repos\Ci2207sg1AlgBaseLab1\obj\Debug\netcoreapp3.1\Ci2207sg1AlgBaseLab1.AssemblyInfoInputs.cache
+C:\Users\SivtsevEE\source\repos\Ci2207sg1AlgBaseLab1\obj\Debug\netcoreapp3.1\Ci2207sg1AlgBaseLab1.AssemblyInfo.cs
+C:\Users\SivtsevEE\source\repos\Ci2207sg1AlgBaseLab1\obj\Debug\netcoreapp3.1\Ci2207sg1AlgBaseLab1.csproj.CoreCompileInputs.cache
+C:\Users\SivtsevEE\source\repos\Ci2207sg1AlgBaseLab1\bin\Debug\netcoreapp3.1\Ci2207sg1AlgBaseLab1.exe
+C:\Users\SivtsevEE\source\repos\Ci2207sg1AlgBaseLab1\bin\Debug\netcoreapp3.1\Ci2207sg1AlgBaseLab1.deps.json
+C:\Users\SivtsevEE\source\repos\Ci2207sg1AlgBaseLab1\bin\Debug\netcoreapp3.1\Ci2207sg1AlgBaseLab1.runtimeconfig.json
+C:\Users\SivtsevEE\source\repos\Ci2207sg1AlgBaseLab1\bin\Debug\netcoreapp3.1\Ci2207sg1AlgBaseLab1.runtimeconfig.dev.json
+C:\Users\SivtsevEE\source\repos\Ci2207sg1AlgBaseLab1\bin\Debug\netcoreapp3.1\Ci2207sg1AlgBaseLab1.dll
+C:\Users\SivtsevEE\source\repos\Ci2207sg1AlgBaseLab1\bin\Debug\netcoreapp3.1\Ci2207sg1AlgBaseLab1.pdb
+C:\Users\SivtsevEE\source\repos\Ci2207sg1AlgBaseLab1\obj\Debug\netcoreapp3.1\Ci2207sg1AlgBaseLab1.dll
+C:\Users\SivtsevEE\source\repos\Ci2207sg1AlgBaseLab1\obj\Debug\netcoreapp3.1\Ci2207sg1AlgBaseLab1.pdb
+C:\Users\SivtsevEE\source\repos\Ci2207sg1AlgBaseLab1\obj\Debug\netcoreapp3.1\Ci2207sg1AlgBaseLab1.genruntimeconfig.cache
