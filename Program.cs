@@ -22,9 +22,8 @@ namespace Ci2207sg1AlgBaseLab1 {
             int number = Int32.Parse(s);
             bool isPalindrom = true;
             int k = 10;
-            int j = 100000;
+            int j = Convert.ToInt32(Math.Pow(10, lenght-1));
             for (int i = 0; i < lenght / 2; i++) {
-                Console.WriteLine((number % k) / (k/10) + " " + (number / j) % (10));
                 if ((number % k) / (k / 10) != (number / j) % (10)) {
                     isPalindrom = false;
                     break;
@@ -34,8 +33,7 @@ namespace Ci2207sg1AlgBaseLab1 {
             }
             if (isPalindrom) {
                 Console.WriteLine("Yes");
-            } else
-            {
+            } else {
                 Console.WriteLine("No");
             }
         }
