@@ -2,17 +2,21 @@
 
 namespace Ci2207sg1AlgBaseLab1 { 
     class Program {
-        static void Main(string[] args) {
+        static void Problem1() {
             int a = 3;
             int b = 7;
             a = a ^ b;
             b = a ^ b;
             a = a ^ b;
             Console.WriteLine(a + " " + b);
+        }
 
+        static void Problem2() {
             double c = Math.Pow(Math.Max(Math.Round(Math.Abs(-Math.Sqrt(3457))), 48), 1);
             Console.WriteLine(c);
+        }
 
+        static void Problem3() {
             string s = Console.ReadLine();
             int lenght = s.Length;
             int number = Int32.Parse(s);
@@ -34,6 +38,12 @@ namespace Ci2207sg1AlgBaseLab1 {
             {
                 Console.WriteLine("No");
             }
+        }
+
+        static void Main(string[] args) {
+            //Problem1();
+            //Problem2();
+            Problem3();            
         }
     }
 }
