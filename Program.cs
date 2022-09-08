@@ -38,10 +38,23 @@ namespace Ci2207sg1AlgBaseLab1 {
             }
         }
 
+        static double MeterToCentimeter(double x) {
+            return 100 * x;
+        }
+        
+        static void Problem4() {
+            const double DiameterInCm = 80; 
+            const double CircumferenceInCm = DiameterInCm * Math.PI;
+            const double EstimatedFullCircles = 2000;
+            double DistanceInM = Double.Parse(Console.ReadLine());
+            Console.WriteLine(Math.Floor(MeterToCentimeter(DistanceInM)/(CircumferenceInCm)/EstimatedFullCircles));
+        }
+
         static void Main(string[] args) {
             //Problem1();
             //Problem2();
-            Problem3();            
+            //Problem3();
+            Problem4();
         }
     }
 }
