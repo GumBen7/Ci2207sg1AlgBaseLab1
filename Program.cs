@@ -50,11 +50,36 @@ namespace Ci2207sg1AlgBaseLab1 {
             Console.WriteLine(Math.Floor(MeterToCentimeter(DistanceInM)/(CircumferenceInCm)/EstimatedFullCircles));
         }
 
+        static bool isUnderParabola(double x, double y) {
+            return y < x*x;
+        }
+
+        static bool isRightToTheLineFromZero(double x, double y) {
+            if (x < 0) {
+                return y > 2 - x;
+            }
+            if (x > 0) {
+                return y < 2 - x;
+            }
+            return false;
+        }
+
+        static void Problem5() {
+            double x = Double.Parse(Console.ReadLine());
+            double y = Double.Parse(Console.ReadLine());
+            if (isUnderParabola(x, y) && isRightToTheLineFromZero(x, y)) {
+                Console.WriteLine("Принадлежит");
+            } else {
+                Console.WriteLine("Не принадлежит");
+            }
+        }
+
         static void Main(string[] args) {
             //Problem1();
             //Problem2();
             //Problem3();
-            Problem4();
+            //Problem4();
+            Problem5();
         }
     }
 }
