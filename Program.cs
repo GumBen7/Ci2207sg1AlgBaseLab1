@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Ci2207sg1AlgBaseLab1 { 
     class Program {
@@ -74,12 +75,60 @@ namespace Ci2207sg1AlgBaseLab1 {
             }
         }
 
+        private static Random rand = new Random();
+
+        static List<int> Shuffle(List<int> l) {
+            int n = l.Count;  
+            while (n > 1) {  
+                n--;  
+                int k = rand.Next(n + 1); 
+                int value = l[k];  
+                l[k] = l[n];  
+                l[n] = value;  
+            } 
+            return l;
+        }
+
+        static int[] Prep() {
+            List<int> l = new List<int>();
+            for (int i = 0; i < 100; i++) {
+                int r = rand.Next(100);
+                l.Add(r);
+                l.Add(r);
+            }
+            int r2;
+            do {
+                r2 = rand.Next(100);
+            } while (l.Contains(r2));
+            l.Add(r2);
+            l = Shuffle(l);
+            return l.ToArray();
+        }
+        static void Problem6() {            
+            int[] a = Prep();
+            bool[] b = new bool[1000];
+            foreach (int i in a) {
+                if (b[i]) {
+                    b[i] = false;
+                } else {
+                    b[i] = true;
+                }
+            }            
+            Console.WriteLine(Array.IndexOf(b, true));
+            int sum = 0;
+            foreach(int i in a) {
+                sum += i;
+            }
+            Console.WriteLine(sum + " " + sum / 2);
+        }
+
         static void Main(string[] args) {
             //Problem1();
             //Problem2();
             //Problem3();
             //Problem4();
-            Problem5();
+            //Problem5();
+            Problem6();
         }
     }
 }
