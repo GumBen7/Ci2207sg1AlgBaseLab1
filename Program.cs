@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Ci2207sg1AlgBaseLab1 { 
     class Program {
@@ -122,13 +123,39 @@ namespace Ci2207sg1AlgBaseLab1 {
             Console.WriteLine(sum + " " + sum / 2);
         }
 
+        static List<int> CreateList(int n) {
+            List<int> l = new List<int>();
+            for (int i = 2; i <= n; i++) {
+                l.Add(i);
+            }
+            return l;
+        }
+
+        static void Problem7() {
+            int n = Int32.Parse(Console.ReadLine());
+            List<int> l = CreateList(n);
+            List<int> l2 = new List<int>();
+            int p = 2;
+            while (p != l.Last()) {
+                int s = p;
+                while (s < n) {
+                    l.Remove(s);
+                    s += p;
+                }
+                l2.Add(p);
+                p = l.First();
+            }
+            l2.ForEach(i => Console.Write(i + "\t"));
+        }
+
         static void Main(string[] args) {
             //Problem1();
             //Problem2();
             //Problem3();
             //Problem4();
             //Problem5();
-            Problem6();
+            //Problem6();
+            Problem7();
         }
     }
 }
