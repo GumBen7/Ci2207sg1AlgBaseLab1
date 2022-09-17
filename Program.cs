@@ -153,8 +153,8 @@ namespace Ci2207sg1AlgBaseLab1 {
             bool[] a = new bool[n + 1];
             a[0] = true;
             a[1] = true;
-            int p = 2;
-            for (int i = 2; i < Math.Sqrt(n); ++i) {
+            double sqrN = Math.Sqrt(n);
+            for (int i = 2; i < sqrN; ++i) {
                 for (int s = i*i; s < n; s += i) {
                     a[s] = true;                   
                 }         
@@ -166,6 +166,10 @@ namespace Ci2207sg1AlgBaseLab1 {
             }
         }
 
+        static void Problem9(int n) {
+
+        }
+
         static void Main(string[] args) {
             //Problem1();
             //Problem2();
@@ -175,11 +179,6 @@ namespace Ci2207sg1AlgBaseLab1 {
             //Problem6();            
             int n = Int32.Parse(Console.ReadLine());
             Stopwatch sw = new Stopwatch();
-            List<int> l = CreateList(n + 1);
-            sw.Start();
-            Problem7(l, n);
-            sw.Stop();
-            Console.WriteLine("Time " + sw.ElapsedMilliseconds);
             sw.Restart();
             Problem8(n);
             sw.Stop();
