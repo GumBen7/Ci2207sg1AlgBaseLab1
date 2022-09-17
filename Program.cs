@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 namespace Ci2207sg1AlgBaseLab1 { 
     class Program {
@@ -131,45 +132,32 @@ namespace Ci2207sg1AlgBaseLab1 {
             return l;
         }
 
-        static void Problem7() {
-            int n = Int32.Parse(Console.ReadLine());
-            List<int> l = CreateList(n + 1);
-            List<int> l2 = new List<int>();
+        static void Problem7(List<int> l, int n) {
             int p = 2;
+            int i = 1;
             while (p != l.Last()) {
-                int s = p;
+                int s = p + p;
                 while (s < n) {
                     l.Remove(s);
                     s += p;
                 }
-                l2.Add(p);
-                p = l.First();
+                ++i;
+                p = l[i];
             }
-            l2.ForEach(i => Console.Write(i + "\t"));
+            foreach(int j in l) {
+                Console.Write(j + "\t");
+            }
         }
 
-        static int FindFalseAfterP(bool[] a, int p) {
-            for(int i = p + 1; i < a.Length; i++) {
-                if (!a[i]) {
-                    return i;
-                }
-            } 
-            return a.Length;
-        }
-
-        static void Problem8() {
-            int n = Int32.Parse(Console.ReadLine());
+        static void Problem8(int n) {
             bool[] a = new bool[n + 1];
             a[0] = true;
             a[1] = true;
             int p = 2;
-            while (p < n) {
-                int s = p + p;
-                while (s < n) {
-                    a[s] = true; 
-                    s += p;                   
-                }
-                p = FindFalseAfterP(a, p);             
+            for (int i = 2; i < Math.Sqrt(n); ++i) {
+                for (int s = i*i; s < n; s += i) {
+                    a[s] = true;                   
+                }         
             }
             for(int i = 0; i < n; ++i) {
                 if (!a[i]) {
@@ -184,9 +172,18 @@ namespace Ci2207sg1AlgBaseLab1 {
             //Problem3();
             //Problem4();
             //Problem5();
-            //Problem6();
-            //Problem7();
-            Problem8();
+            //Problem6();            
+            int n = Int32.Parse(Console.ReadLine());
+            Stopwatch sw = new Stopwatch();
+            List<int> l = CreateList(n + 1);
+            sw.Start();
+            Problem7(l, n);
+            sw.Stop();
+            Console.WriteLine("Time " + sw.ElapsedMilliseconds);
+            sw.Restart();
+            Problem8(n);
+            sw.Stop();
+            Console.WriteLine("Time " + sw.ElapsedMilliseconds);
         }
     }
 }
