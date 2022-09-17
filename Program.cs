@@ -125,7 +125,7 @@ namespace Ci2207sg1AlgBaseLab1 {
 
         static List<int> CreateList(int n) {
             List<int> l = new List<int>();
-            for (int i = 2; i <= n; i++) {
+            for (int i = 2; i < n; i++) {
                 l.Add(i);
             }
             return l;
@@ -133,7 +133,7 @@ namespace Ci2207sg1AlgBaseLab1 {
 
         static void Problem7() {
             int n = Int32.Parse(Console.ReadLine());
-            List<int> l = CreateList(n);
+            List<int> l = CreateList(n + 1);
             List<int> l2 = new List<int>();
             int p = 2;
             while (p != l.Last()) {
@@ -148,6 +148,36 @@ namespace Ci2207sg1AlgBaseLab1 {
             l2.ForEach(i => Console.Write(i + "\t"));
         }
 
+        static int FindFalseAfterP(bool[] a, int p) {
+            for(int i = p + 1; i < a.Length; i++) {
+                if (!a[i]) {
+                    return i;
+                }
+            } 
+            return a.Length;
+        }
+
+        static void Problem8() {
+            int n = Int32.Parse(Console.ReadLine());
+            bool[] a = new bool[n + 1];
+            a[0] = true;
+            a[1] = true;
+            int p = 2;
+            while (p < n) {
+                int s = p + p;
+                while (s < n) {
+                    a[s] = true; 
+                    s += p;                   
+                }
+                p = FindFalseAfterP(a, p);             
+            }
+            for(int i = 0; i < n; ++i) {
+                if (!a[i]) {
+                    Console.Write(i + "\t");
+                }
+            }
+        }
+
         static void Main(string[] args) {
             //Problem1();
             //Problem2();
@@ -155,7 +185,8 @@ namespace Ci2207sg1AlgBaseLab1 {
             //Problem4();
             //Problem5();
             //Problem6();
-            Problem7();
+            //Problem7();
+            Problem8();
         }
     }
 }
