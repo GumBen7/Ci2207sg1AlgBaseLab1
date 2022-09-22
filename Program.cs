@@ -167,7 +167,57 @@ namespace Ci2207sg1AlgBaseLab1 {
         }
 
         static void Problem9(int n) {
-
+            int[] s = {1, 7, 11, 13, 17, 19, 23, 29, 31, 37, 
+                41, 43, 47, 49, 53, 59};
+            int[] s1 = {1, 13, 17, 29, 37, 41, 49, 53};
+            int[] s2 = {7, 19, 31, 43};
+            int[] s3 = {11, 23, 47, 59};
+            bool[] a = new bool[n+1];
+            a[0] = true;
+            a[1] = true;
+            a[2] = true;
+            a[3] = true;
+            double sqrN = Math.Sqrt(n);
+            int m;
+            for (int x = 1; x < sqrN; ++x) {
+                for (int y = 1; y < sqrN; y += 2) {
+                    m = 4 * x * x + y * y;
+                    if (m <= n && s1.Contains(m % 60)) {
+                        a[m] ^= true;
+                    }
+                }
+            }
+            for (int x = 1; x < sqrN; x += 2) {
+                for (int y = 2; y < sqrN; y += 2) {
+                    m = 3 * x * x + y * y;
+                    if (m <= n && s2.Contains(m % 60)) {
+                        a[m] ^= true;
+                    }
+                }
+            }
+            for (int x = 2; x < sqrN; ++x) {
+                for (int y = x - 1; y >= 1; y -= 2) {
+                    m = 3 * x * x - y * y;
+                    if (m <= n && s3.Contains(m % 60)) {
+                        a[m] ^= true;
+                    }
+                }
+            }
+            foreach(int x in s) {
+                for (int w = 0; w < n/60; w++) {
+                    m = 60* w + x;
+                    if (m <= n && a[m]) {
+                        for (int i = m * m; i < n; i += m * m) {
+                            a[i] = false;
+                        }
+                    }
+                }
+            }
+            for(int i = 0; i < n; ++i) {
+                if (!a[i]) {
+                    Console.Write(i + "\t");
+                }
+            }
         }
 
         static void Main(string[] args) {
@@ -179,8 +229,12 @@ namespace Ci2207sg1AlgBaseLab1 {
             //Problem6();            
             int n = Int32.Parse(Console.ReadLine());
             Stopwatch sw = new Stopwatch();
-            sw.Restart();
+            sw.Start();
             Problem8(n);
+            sw.Stop();
+            Console.WriteLine("Time " + sw.ElapsedMilliseconds);
+            sw.Restart();
+            Problem9(n);
             sw.Stop();
             Console.WriteLine("Time " + sw.ElapsedMilliseconds);
         }
