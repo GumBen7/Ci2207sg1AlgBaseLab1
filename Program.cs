@@ -173,10 +173,9 @@ namespace Ci2207sg1AlgBaseLab1 {
             int[] s2 = {7, 19, 31, 43};
             int[] s3 = {11, 23, 47, 59};
             bool[] a = new bool[n+1];
-            a[0] = true;
-            a[1] = true;
             a[2] = true;
             a[3] = true;
+            a[5] = true;
             double sqrN = Math.Sqrt(n);
             int m;
             for (int x = 1; x < sqrN; ++x) {
@@ -214,7 +213,7 @@ namespace Ci2207sg1AlgBaseLab1 {
                 }
             }
             for(int i = 0; i < n; ++i) {
-                if (!a[i]) {
+                if (a[i]) {
                     Console.Write(i + "\t");
                 }
             }
