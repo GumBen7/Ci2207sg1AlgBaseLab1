@@ -159,11 +159,11 @@ namespace Ci2207sg1AlgBaseLab1 {
                     a[s] = true;                   
                 }         
             }
-            for(int i = 0; i < n; ++i) {
+            /*for(int i = 0; i < n; ++i) {
                 if (!a[i]) {
                     Console.Write(i + "\t");
                 }
-            }
+            }*/
         }
 
         static void Problem9(int n) {
@@ -212,11 +212,78 @@ namespace Ci2207sg1AlgBaseLab1 {
                     }
                 }
             }
-            for(int i = 0; i < n; ++i) {
+            /*for(int i = 0; i < n; ++i) {
                 if (a[i]) {
                     Console.Write(i + "\t");
                 }
+            }*/
+        }
+
+        static int[] createIntMassive(int n) {
+            Random rnd = new Random();
+            int[] a = new int[n];
+            for (int i = 0; i < n; ++i) {
+                a[i] = rnd.Next(-100, 100);
             }
+            return a;
+        }
+        static void Problem10() {
+            int n = 100;
+            int[] a = createIntMassive(n);
+            int s = 0;
+            foreach (int i in a) {
+                s += i;
+            }
+            int s2 = 0;
+            foreach (int i in a) {
+                if (i % 6 == 0) {
+                    ++s2;
+                }
+            }
+            int s3 = 0;
+            foreach (int i in a) {
+                if (i < 0) {
+                    ++s3;
+                }
+            }
+            int s4 = 1;
+            foreach (int i in a) {
+                if (i % 5 == 0) {
+                    s4 *= i;
+                }
+            }
+            int s5 = 0;
+            for (int i = 1; i < n; ++i) {
+                if (a[i-1] * a[i] < 0) {
+                    ++s5;
+                }
+            }
+            Random rnd = new Random();
+            int x = rnd.Next(-100, 100);
+            int xIndex = -1;
+            for (int i = 0; i < n; ++i) {
+                if (a[i] == x) {
+                    Console.WriteLine("Yes");
+                    xIndex = i;
+                    break;
+                }
+            }            
+            if (xIndex == -1) {
+                Console.WriteLine("No");
+            } 
+            else {
+                int s6 = 0;
+                for (int i = 0; i < xIndex; ++i) {
+                    s6 += a[i];
+                }
+                int s7 = 1;
+                for (int i = xIndex + 1; i < n; ++i) {
+                    if (a[i] % 2 == 1) {
+                        s7 *= a[i];
+                    }
+                }
+            }
+
         }
 
         static void Main(string[] args) {
@@ -226,7 +293,7 @@ namespace Ci2207sg1AlgBaseLab1 {
             //Problem4();
             //Problem5();
             //Problem6();            
-            int n = Int32.Parse(Console.ReadLine());
+            /*int n = Int32.Parse(Console.ReadLine());
             Stopwatch sw = new Stopwatch();
             sw.Start();
             Problem8(n);
@@ -235,7 +302,8 @@ namespace Ci2207sg1AlgBaseLab1 {
             sw.Restart();
             Problem9(n);
             sw.Stop();
-            Console.WriteLine("Time " + sw.ElapsedMilliseconds);
+            Console.WriteLine("Time " + sw.ElapsedMilliseconds);*/
+
         }
     }
 }
