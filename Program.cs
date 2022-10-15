@@ -287,23 +287,10 @@ namespace Ci2207sg1AlgBaseLab1 {
         }
 
         static void Main(string[] args) {
-            //Problem1();
-            //Problem2();
-            //Problem3();
-            //Problem4();
-            //Problem5();
-            //Problem6();            
-            /*int n = Int32.Parse(Console.ReadLine());
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            Problem8(n);
-            sw.Stop();
-            Console.WriteLine("Time " + sw.ElapsedMilliseconds);
-            sw.Restart();
-            Problem9(n);
-            sw.Stop();
-            Console.WriteLine("Time " + sw.ElapsedMilliseconds);*/
-
+            Dog model = new Dog();
+            DogView view = new DogView();
+            DogController Dog1 = new DogController(model, view);
+            Dog1.Name("Жучка");
         }
     }
 }
