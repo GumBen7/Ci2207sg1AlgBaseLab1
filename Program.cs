@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Ci2207sg1AlgBaseLab1 { 
     class Program {
@@ -286,11 +287,42 @@ namespace Ci2207sg1AlgBaseLab1 {
 
         }
 
+        private static bool IsLoginValid(string login) {
+            login = Regex.Replace(login, @"^\s+|\s+$", "");
+            Regex regex = new Regex(@"^[a-z-[aeiou]]{4}[0-9]{4}$", RegexOptions.IgnoreCase);
+            if (regex.IsMatch(login)) {
+                return true;
+            }
+            return false;
+        }
+
+        private static bool IsPasswordValid(string password) {
+            Regex regex = new Regex(@"^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{8,}&");
+            if (regex.IsMatch(password)) {
+                return true;
+            }
+            return false;
+        }
+
+        public static void Problem13() {
+            string Login;
+            /*do {
+                System.Console.WriteLine("Login:");
+                Login = System.Console.ReadLine();
+            } while (!IsLoginValid(Login));//*/
+            string Password;
+            do {
+                System.Console.WriteLine("Password:");
+                Password = System.Console.ReadLine();
+            } while (!IsPasswordValid(Password));
+        }
+
         static void Main(string[] args) {
-            Dog model = new Dog();
+            /*Dog model = new Dog();
             DogView view = new DogView();
             DogController Dog1 = new DogController(model, view);
-            Dog1.Name("Жучка");
+            Dog1.Name("Жучка");//*/
+            Problem13();
         }
     }
 }
