@@ -317,12 +317,84 @@ namespace Ci2207sg1AlgBaseLab1 {
             } while (!IsPasswordValid(Password));
         }
 
+        public static void Problem14() {
+            string Str = System.Console.ReadLine();
+            StringBuilder StrB = new StringBuilder();
+            int Count = 0;
+            foreach (char c in Str) {
+                if (c >= '0' && c <= '9') {
+                    ++Count;
+                    StrB.Append(c);
+                }
+            }
+            System.Console.WriteLine("Count = {0}", Count);
+            System.Console.WriteLine(StrB);
+        } 
+        
+        //в двочиной или 16 ч каждый символ в системе
+        private static bool IsNumberValidForNumSys(string number, int b) {
+            foreach (char C in number) {
+                if (b < 10) {
+                    if (C < '0' || C >= '0' + b) {
+                        return false;
+                    }
+                } 
+                else {
+                    if (C < '0' || C > '9' && C < 'A' || C >= 'A' + b - 10){
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        private static int ConvertToDec(string number, int numSys) {
+            int Decimal = 0;
+            int k = number.Length - 1;
+            foreach(char c in number) {
+                if (c >= 'A') {
+                    Decimal += (int)Math.Pow(numSys, k) * (c - 'A' + 10);
+                }
+                else {
+                    Decimal += (int)Math.Pow(numSys, k) * (c - '0');
+                }
+                --k;
+            }
+            return Decimal;
+        }
+        private static string ConvertFromDec(int number, int b) {
+            if (number == 0) {
+                return "0";
+            }
+            StringBuilder SB = new StringBuilder();
+            char C;
+            while (number > 1) {            
+                if (number % b > 9) {
+                    C = (char)(number % b + 'A' - 10);
+                } 
+                else {
+                    C = (char)(number % b + '0');
+                }
+                SB.Append(C);
+                number /= b;
+            } 
+            if (number > 0) {
+                SB.Append(number);
+            }
+            char[] a = SB.ToString().ToCharArray();
+            Array.Reverse(a);
+            return new String(a);
+        }
+        public static void Problem15() {
+            System.Console.WriteLine(IsNumberValidForNumSys("010100101010011", 2));
+        }
+
         static void Main(string[] args) {
             /*Dog model = new Dog();
             DogView view = new DogView();
             DogController Dog1 = new DogController(model, view);
             Dog1.Name("Жучка");//*/
-            Problem13();
+            //Problem13();
         }
     }
 }
