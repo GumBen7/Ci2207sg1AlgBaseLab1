@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -387,6 +388,11 @@ namespace Ci2207sg1AlgBaseLab1 {
         }
         public static void Problem15() {
             System.Console.WriteLine(IsNumberValidForNumSys("010100101010011", 2));
+        }
+
+        private static void Problem16() {
+            string[] AB = File.ReadAllLines("input.txt");
+            File.WriteAllText("output.txt", Int.Parse(AB[0]) +());
         }
 
         static void Main(string[] args) {
