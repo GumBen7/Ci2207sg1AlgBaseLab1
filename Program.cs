@@ -156,16 +156,16 @@ namespace Ci2207sg1AlgBaseLab1 {
             a[0] = true;
             a[1] = true;
             double sqrN = Math.Sqrt(n);
-            for (int i = 2; i < sqrN; ++i) {
-                for (int s = i*i; s < n; s += i) {
+            for (int i = 2; i <= sqrN; ++i) {
+                for (int s = i*i; s <= n; s += i) {
                     a[s] = true;                   
                 }         
             }
-            /*for(int i = 0; i < n; ++i) {
+            for(int i = 0; i <= n; ++i) {
                 if (!a[i]) {
                     Console.Write(i + "\t");
                 }
-            }*/
+            }//*/
         }
 
         static void Problem9(int n) {
@@ -390,17 +390,13 @@ namespace Ci2207sg1AlgBaseLab1 {
             System.Console.WriteLine(IsNumberValidForNumSys("010100101010011", 2));
         }
 
-        private static void Problem16() {
-            string[] AB = File.ReadAllLines("input.txt");
-            File.WriteAllText("output.txt", Int.Parse(AB[0]) +());
-        }
-
         static void Main(string[] args) {
             /*Dog model = new Dog();
             DogView view = new DogView();
             DogController Dog1 = new DogController(model, view);
             Dog1.Name("Жучка");//*/
             //Problem13();
+            Problem8(23);
         }
     }
 }
