@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -396,7 +395,7 @@ namespace Ci2207sg1AlgBaseLab1 {
             DogController Dog1 = new DogController(model, view);
             Dog1.Name("Жучка");//*/
             //Problem13();
-            Problem8(23);
+            Problem3_3.Work();
         }
     }
 }
