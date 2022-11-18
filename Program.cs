@@ -395,7 +395,24 @@ namespace Ci2207sg1AlgBaseLab1 {
             DogController Dog1 = new DogController(model, view);
             Dog1.Name("Жучка");//*/
             //Problem13();
-            Problem3_3.Work();
+            //Problem3_3.Work();
+            int[] a = Prep();
+            var max = a.Max();
+            var maxIndex = a.ToList().IndexOf(max);
+            var min = a.Min();
+            var minIndex = a.ToList().IndexOf(min);
+            System.Console.WriteLine(min + " " + max + " " + minIndex + " " + maxIndex);
+            foreach (var i in a) { 
+                System.Console.Write(i + " ");
+            }
+            System.Console.WriteLine();
+            a[maxIndex] = a[maxIndex] ^ a[minIndex];
+            a[minIndex] = a[maxIndex] ^ a[minIndex];
+            a[maxIndex] = a[maxIndex] ^ a[minIndex];
+            foreach (var i in a) {
+                System.Console.Write(i + " ");
+            }
+
         }
     }
 }
